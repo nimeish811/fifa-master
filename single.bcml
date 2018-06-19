@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <!-- Basic Page Needs http://alchemists.dan-fisher.com/football/_football_team-standings.html
+         ================================================== -->
+      <title>American Football &amp; Sports News HTML Template - Full Standings</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="Sports Club, League and News HTML Template">
+      <meta name="author" content="Dan Fisher">
+      <meta name="keywords" content="sports club news HTML template">
+      <!-- Favicons
+         ================================================== -->
+      <link rel="shortcut icon" href="http://alchemists.dan-fisher.com/football/assets/images/football/favicons/favicon.ico">
+      <link rel="apple-touch-icon" sizes="120x120" href="http://alchemists.dan-fisher.com/football/assets/images/football/favicons/favicon-120.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="http://alchemists.dan-fisher.com/football/assets/images/football/favicons/favicon-152.png">
+      <!-- Mobile Specific Metas
+         ================================================== -->
+      <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+      <!-- Google Web Fonts
+         ================================================== -->
+      <link href="assets/css.css" rel="stylesheet">
+      <!-- CSS
+         ================================================== --><!-- Vendor CSS -->
+      <link href="assets/bootstrap.css" rel="stylesheet">
+      <link href="assets/font-awesome.css" rel="stylesheet">
+      <link href="assets/simple-line-icons.css" rel="stylesheet">
+      <link href="assets/magnific-popup.css" rel="stylesheet">
+      <link href="assets/slick.css" rel="stylesheet">
+      <!-- Template CSS-->
+      <link href="assets/style-football.css" rel="stylesheet">
+      <!-- Custom CSS-->
+      <link href="assets/custom.css" rel="stylesheet">
+   </head>
+   <body class="template-football" style="display: block;">
+      <div class="site-wrapper clearfix">
+         <div class="site-overlay"></div>
+         <!-- Header
+            ================================================== --><!-- Header Mobile Wallet ID 钱包ID 
+Nickname 昵称 -->
+         
+         <!-- Header Desktop -->
+        
+         <!-- Header / End --><!-- Page Heading
+            ================================================== -->
+
+         <!-- Team Pages Filter / End --><!-- Content
+            ================================================== -->
+         <div class="site-content">
+            <div class="container">
+               <!-- Team Standings -->
+               <h5 id="total_money"> </h5>
+               <div class="card card--has-table">
+                  <div class="card__header">
+                     <h4>Enter Your Wallet ID</h4>
+                  </div>
+                  <div class="card__content">
+
+                    <input type="text" class="form-control" id="wallet" placeholder="WalletID 钱包ID " >
+                    <span id="msg_error" style="color:red"> </span>
+                    
+                    <input type="text" class="form-control" id="neck_name" placeholder="Nickname 昵称" >
+                  </div>
+                  <br>
+                     <input type="button" class="btn btn-primary" id="wallet" value="Submit" onclick="submit_wallet();">
+
+               </div>
+               <div class="card card--has-table">
+
+                <h6>  Instructions </h6>
+               <ul>
+               <li>Game title: Guess who is the champion for World Cup 2018 ！
+                    游戏标题：猜那个国家会是世界杯冠军 ！</li>
+               <li>The highest points participant will take whole pool (less 5% platform fees) is calculated based on Point system with accurate position on Champion - 10 Points , 2nd - 7 points , 3rd - 5 points, 4th - 3 points , each quarterfinalist - 1 point
+最高积分胜出者将赢取总奖金(扣除5%平台费用）。冠军10分，亚军7分，季军5分，第四名3分，进入8强一分.</li>
+               <li> In occasion two or more participants collect same point , participants are required to share the pool prize equally
+如有两个或以上得分最高者将平分奖金 </li>
+               <li>100trvc for each game
+100特尔币一次游戏</li>
+               <li>please key in your wallet ID as participant and the winner will be paid directly to the wallet ID
+请把钱包地址输入为用户名.奖金将会付给注册钱包地址 </li>
+<li>system will run automatically once registered and no refund is allowed
+一但注册系统将运行.游戏费不可退还</li>
+               
+               </ul>
+
+
+              <!-- <h6>   Rules & Regulation </h6>
+               <ul>
+               <li>Each Participants requested to provide 8 teams (top 4 ranking teams with 4 quarterfinalists) </li>
+               <li>The winner is generated from point system with accurate position on Champion - 10 Points , 2nd - 7 points , 3rd - 5 points, 4th - 3 points , each quarterfinalist - 1 point</li>
+               <li> 100 TRVC per entry per participant , no refund policy</li>
+               <li>The highest points participant will take whole pool</li>
+               <li>In occasion two or more participants collect same point , participants are required to share the pool prize equally </li>
+               
+               </ul> -->
+               </div>
+               <!-- Team Standings / End --><!-- Terms Glossary -->               <!-- Terms Glossary / End -->
+            </div>
+         </div>
+         <!-- Content / End -->
+      </div>
+      <!-- Footer / End --><!-- Javascript Files
+         ================================================== --><!-- Core JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+function submit_wallet(){
+
+       var url_data = "https://ypblocknews.com/fifa/admin_master/is_team_created/";
+       var wallet = $("#wallet").val();
+       var neck_name =$("#neck_name").val();
+if(wallet!=""){
+        $.ajax({
+          type: 'POST',
+          url: url_data,
+          //contentType: 'application/json; charset=utf-8',
+          //data: json,
+         data: {wallet:wallet,neck:neck_name},
+          success : function(data) {
+
+            if(data==1){
+              window.location.href="point.bcml?wallet="+wallet+"&neckname="+neck_name;
+            }else{
+              window.location.href="fifa.bcml?wallet="+wallet+"&neckname="+neck_name;
+            }
+
+          }
+        });
+        
+        }else{
+        
+        $("#msg_error").text("Enter Wallet ID");
+        
+        }
+        }
+
+        function get_money(){
+
+        var url_data = "https://ypblocknews.com/fifa/admin_master/total_money/";
+
+            $.ajax({
+              url: url_data,
+              success : function(data) {
+
+                              $("#total_money").text("TOTAL POOL NOW: "+ data+ "TRVC");
+
+              }
+            });
+
+        }
+              
+get_money();
+</script>
+   </body>
+</html>
+

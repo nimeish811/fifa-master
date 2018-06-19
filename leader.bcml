@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <!-- Basic Page Needs http://alchemists.dan-fisher.com/football/_football_team-standings.html
+         ================================================== -->
+      <title>American Football &amp; Sports News HTML Template - Full Standings</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="Sports Club, League and News HTML Template">
+      <meta name="author" content="Dan Fisher">
+      <meta name="keywords" content="sports club news HTML template">
+      <!-- Favicons
+         ================================================== -->
+      <link rel="shortcut icon" href="http://alchemists.dan-fisher.com/football/assets/images/football/favicons/favicon.ico">
+      <link rel="apple-touch-icon" sizes="120x120" href="http://alchemists.dan-fisher.com/football/assets/images/football/favicons/favicon-120.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="http://alchemists.dan-fisher.com/football/assets/images/football/favicons/favicon-152.png">
+      <!-- Mobile Specific Metas
+         ================================================== -->
+      <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+      <!-- Google Web Fonts
+         ================================================== -->
+      <link href="assets/css.css" rel="stylesheet">
+      <!-- CSS
+         ================================================== --><!-- Vendor CSS -->
+      <link href="assets/bootstrap.css" rel="stylesheet">
+      <link href="assets/font-awesome.css" rel="stylesheet">
+      <link href="assets/simple-line-icons.css" rel="stylesheet">
+      <link href="assets/magnific-popup.css" rel="stylesheet">
+      <link href="assets/slick.css" rel="stylesheet">
+      <!-- Template CSS-->
+      <link href="assets/style-football.css" rel="stylesheet">
+      <!-- Custom CSS-->
+      <link href="assets/custom.css" rel="stylesheet">
+      <style>
+      .button {
+    background: #F92552 none repeat scroll 0 0;
+    border-radius: 5px;
+   // color: black;
+    display: block;
+    font-weight: bold;
+    height: 54px;
+    margin-left: 80px;
+    text-align: center;
+    width: 137px;
+    line-height: 54px;
+}
+</style>
+
+   </head>
+   <body class="template-football" style="display: block;">
+     <bizapp-root>
+      <div class="site-wrapper clearfix">
+         <div class="site-overlay"></div>
+         <!-- Header
+            ================================================== --><!-- Header Mobile -->
+         
+         <!-- Header Desktop -->
+        
+         <!-- Header / End --><!-- Page Heading
+            ================================================== -->
+
+         <!-- Team Pages Filter / End --><!-- Content
+            ================================================== -->
+         <div class="site-content">
+            <div class="container">
+               <!-- Team Standings -->
+               <h3 id="total_money"> </h3>
+               <div class="card card--has-table">
+                  <div class="card__header">
+                     <h4>Champion Jackpot</h4>
+                  </div>
+                  <div class="card__content">
+                    <div class="widget-game-result__section">
+                      <div class="widget-game-result__table-stats">
+                        <div class="table-responsive">
+                          <table class="table table__cell-center table-thead-color">
+                            <thead>
+                              <tr>
+                                  <th>Nickname</th>
+                                  <th>Point</th>
+                                </tr>
+                              </thead>
+                            <tbody id="tbody">
+
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+               </div>
+               <!-- Team Standings / End --><!-- Terms Glossary -->               <!-- Terms Glossary / End -->
+            </div>
+
+            <div class="card card--has-table">
+                  <div class="card__header">
+                     <h4>Group Jackpot</h4>
+                  </div>
+                  <div class="card__content">
+                    <div class="widget-game-result__section">
+                      <div class="widget-game-result__table-stats">
+                        <div class="table-responsive">
+                          <table class="table table__cell-center table-thead-color">
+                            <thead>
+                              <tr>
+                                  <th>Group Name </th>
+                                  <th>Team Name</th>
+                                </tr>
+                              </thead>
+                            <tbody id="tbody1">
+
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+               </div>
+               <!-- Team Standings / End --><!-- Terms Glossary -->               <!-- Terms Glossary / End -->
+            </div>
+
+         </div>
+         <!-- Content / End -->
+      </div>
+      <!-- Footer / End --><!-- Javascript Files
+         ================================================== --><!-- Core JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+    function onload(){
+
+       var url_data = "https://ypblocknews.com/fifa/admin_master/get_champion_leader/";
+       
+        $.ajax({
+         // type: 'POST',
+          url: url_data,
+          success : function(data) {
+              var team = data.point_list;
+
+               var html_review = "";
+               var ctn=1;
+              $.each( team, function( key, value ) {
+             
+                       
+                             html_review += '<tr>'+
+                                 '<td class="team-standings__win">'+value.neck+'</td>'+
+                                 '<td class="team-standings__win">'+value.total+'</td>'+
+                            
+                              '</tr>';
+
+                        $("#tbody").html(html_review);
+                        
+                        
+                         
+                        ctn++;
+              });
+              
+              }
+            });
+      
+
+
+      var url_data = "https://ypblocknews.com/fifa/admin_master/get_group_leader/";
+       
+        $.ajax({
+         // type: 'POST',
+          url: url_data,
+          success : function(data) {
+              var team = data.point_list;
+
+               var html_review = "";
+               var ctn=1;
+              $.each( team, function( key, value ) {
+             
+                       
+                             html_review += '<tr>'+
+                                 '<td class="team-standings__win"> Group : '+value.group_name+'</td>'+
+                                 '<td class="team-standings__win">'+value.team_name+'</td>'+
+                            
+                              '</tr>';
+
+                        $("#tbody1").html(html_review);
+                        
+                        
+                         
+                        ctn++;
+              });
+              
+              }
+            });
+      }
+
+onload();
+</script>
+
+</script>
+ </bizapp-root>
+   </body>
+</html>
+
